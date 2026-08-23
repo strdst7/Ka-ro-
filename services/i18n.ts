@@ -32,8 +32,17 @@ export interface Translations {
   square: string;
   portrait: string;
 
-  // Prompt Bank Popover
+  // Prompt Bank & Template Library Modal
   promptBankTitle: string;
+  templateLibrary: string;
+  templateLibrarySubtitle: string;
+  useTemplate: string;
+  filterAll: string;
+  filterImage: string;
+  filterStory: string;
+  allCategories: string;
+  selectTemplate: string;
+  templatesCount: string;
   promptBankClickToPopulate: string;
   promptBankSearchPlaceholder: string;
   promptBankNoResults: string;
@@ -188,10 +197,19 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     square: "Square",
     portrait: "Portrait",
 
-    promptBankTitle: "Prompt Bank",
+    promptBankTitle: "Template Library",
+    templateLibrary: "Template Library",
+    templateLibrarySubtitle: "Select from predefined prompt templates to automatically populate your canvas with high-quality starting points.",
+    useTemplate: "Use Template",
+    filterAll: "All Types",
+    filterImage: "Image Prompts",
+    filterStory: "Story & Copy Prompts",
+    allCategories: "All Categories",
+    selectTemplate: "Select Template",
+    templatesCount: "templates",
     promptBankClickToPopulate: "Click to populate",
-    promptBankSearchPlaceholder: "Search prompts, styles, keywords...",
-    promptBankNoResults: "No matching prompts found",
+    promptBankSearchPlaceholder: "Search templates, categories, keywords, or tags...",
+    promptBankNoResults: "No matching prompt templates found",
     categoryAll: "All",
 
     visionPromptTitle: "Vision & Prompt",
@@ -340,10 +358,19 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     square: "Segi Empat",
     portrait: "Potret",
 
-    promptBankTitle: "Bank Prompt",
+    promptBankTitle: "Pustaka Templat",
+    templateLibrary: "Pustaka Templat",
+    templateLibrarySubtitle: "Pilih daripada templat prompt untuk memulakan kanvas anda dengan draf berkualiti tinggi secara automatik.",
+    useTemplate: "Gunakan Templat",
+    filterAll: "Semua Jenis",
+    filterImage: "Prompt Imej",
+    filterStory: "Prompt Cerita & Iklan",
+    allCategories: "Semua Kategori",
+    selectTemplate: "Pilih Templat",
+    templatesCount: "templat",
     promptBankClickToPopulate: "Klik untuk guna",
-    promptBankSearchPlaceholder: "Cari prompt, gaya, kata kunci...",
-    promptBankNoResults: "Tiada prompt yang sepadan dijumpai",
+    promptBankSearchPlaceholder: "Cari templat, kategori, kata kunci, atau tag...",
+    promptBankNoResults: "Tiada templat prompt yang sepadan dijumpai",
     categoryAll: "Semua",
 
     visionPromptTitle: "Visi & Prompt",

@@ -18,6 +18,7 @@ interface HeaderProps {
     onShowWelcome?: () => void;
     onOpenHistory: () => void;
     onSelectTemplate: (prompt: string, mode: Mode) => void;
+    onOpenTemplateLibrary?: () => void;
     isLoading: boolean;
     mode: Mode;
     aspectRatio: AspectRatio;
@@ -43,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({
     onShowWelcome,
     onOpenHistory,
     onSelectTemplate,
+    onOpenTemplateLibrary,
     isLoading,
     mode,
     aspectRatio,
@@ -192,11 +194,17 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         </Tooltip>
 
-        {/* Templates Button & Popover */}
+        {/* Templates Button */}
         <div className="relative" ref={templatesRef}>
-          <Tooltip content={t.promptBank}>
+          <Tooltip content={t.templateLibrary}>
             <button
-              onClick={() => setShowTemplates(!showTemplates)}
+              onClick={() => {
+                if (onOpenTemplateLibrary) {
+                  onOpenTemplateLibrary();
+                } else {
+                  setShowTemplates(!showTemplates);
+                }
+              }}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[12px] font-bold tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-brand-pink-300 shadow-sm ${
                 showTemplates
                   ? 'bg-gradient-to-r from-pink-500 to-rose-500 border-transparent text-white shadow-pink-500/25'
@@ -204,13 +212,13 @@ const Header: React.FC<HeaderProps> = ({
               }`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
-              <span className="hidden sm:inline">{t.promptBank}</span>
+              <span className="hidden sm:inline">{t.templateLibrary}</span>
             </button>
           </Tooltip>
 
-          {showTemplates && (
+          {showTemplates && !onOpenTemplateLibrary && (
             <div className="absolute top-full right-0 mt-2 w-80 sm:w-96 max-h-[480px] overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-200/80 dark:border-gray-700/80 p-3.5 flex flex-col gap-2.5 animate-fade-in z-[100]">
               <div className="flex items-center justify-between pb-1 border-b border-gray-100 dark:border-gray-800">
                 <span className="text-xs font-extrabold text-gray-800 dark:text-gray-100 uppercase tracking-wider">

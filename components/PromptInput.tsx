@@ -23,6 +23,7 @@ interface PromptInputProps {
   setPrompt: (prompt: string) => void;
   onSubmit: () => void;
   onAnalyze: () => void;
+  onOpenTemplates?: () => void;
   isLoading: boolean;
   isGenerating: boolean;
   isAnalyzing?: boolean;
@@ -41,6 +42,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
   setPrompt, 
   onSubmit, 
   onAnalyze,
+  onOpenTemplates,
   isLoading, 
   isGenerating, 
   isAnalyzing = false,
@@ -227,6 +229,21 @@ const PromptInput: React.FC<PromptInputProps> = ({
                         </svg>
                     </button>
                 </Tooltip>
+
+                {onOpenTemplates && (
+                    <Tooltip content={t.templateLibrary} position="top-right">
+                        <button
+                            onClick={onOpenTemplates}
+                            disabled={isLoading}
+                            className="flex items-center gap-1 px-2 py-1.5 bg-pink-50/80 hover:bg-pink-100 dark:bg-pink-950/40 dark:hover:bg-pink-900/60 rounded-lg text-pink-600 dark:text-pink-300 transition-all border border-pink-200/80 dark:border-pink-800/60 disabled:opacity-50 disabled:pointer-events-none shadow-sm text-xs font-bold"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            <span className="hidden sm:inline">{t.templateLibrary}</span>
+                        </button>
+                    </Tooltip>
+                )}
             </div>
             <input 
                 type="file" 

@@ -11,6 +11,7 @@ import PromptInput from './components/PromptInput';
 import ClarificationCard from './components/ClarificationCard';
 import OutputDisplay from './components/OutputGallery';
 import { WelcomeOverlay } from './components/WelcomeOverlay';
+import { TemplateLibraryModal } from './components/TemplateLibraryModal';
 import {
   generateClarifications,
   generateImagesFromPrompt,
@@ -53,6 +54,7 @@ function App() {
   const [showModeChangePopup, setShowModeChangePopup] = useState(false);
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showIntroModal, setShowIntroModal] = useState(true);
+  const [showTemplateModal, setShowTemplateModal] = useState(false);
   
   const [mode, setMode] = useState<Mode>(() => initialSession?.mode ?? DEFAULT_SESSION_MODE);
   
@@ -629,6 +631,7 @@ function App() {
             onShowWelcome={() => setShowIntroModal(true)}
             onOpenHistory={() => setIsHistoryOpen(true)}
             onSelectTemplate={handleSelectTemplate}
+            onOpenTemplateLibrary={() => setShowTemplateModal(true)}
             isLoading={isGenerating || isUpdatingPrompt || isClarificationsLoading}
             mode={mode}
             aspectRatio={aspectRatio}
@@ -689,6 +692,7 @@ function App() {
                             setPrompt={setPrompt}
                             onSubmit={handlePromptSubmit}
                             onAnalyze={handleAnalyzeOnly}
+                            onOpenTemplates={() => setShowTemplateModal(true)}
                             isLoading={isGenerating || isUpdatingPrompt}
                             isGenerating={isGenerating}
                             isAnalyzing={isClarificationsLoading}
@@ -885,6 +889,16 @@ function App() {
                 setPrompt(selectedPrompt);
                 handleModeChange(selectedMode);
                 closeIntroModal();
+            }}
+            language={language}
+        />
+
+        <TemplateLibraryModal
+            isOpen={showTemplateModal}
+            onClose={() => setShowTemplateModal(false)}
+            onSelectTemplate={(selectedPrompt, selectedMode) => {
+                handleSelectTemplate(selectedPrompt, selectedMode);
+                setShowTemplateModal(false);
             }}
             language={language}
         />

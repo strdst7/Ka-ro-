@@ -1,6 +1,9 @@
 import { Mode, Language } from '../types';
 
 export type PromptCategory = 
+  | 'Storyteller'
+  | 'Marketing Copywriter'
+  | 'Image Prompting'
   | 'Sci-Fi & Cyberpunk' 
   | 'Fantasy & Mythical' 
   | 'Cozy & Whimsical' 
@@ -22,6 +25,9 @@ export interface PromptTemplate {
 
 export const CATEGORY_TRANSLATIONS: Record<Language, Record<PromptCategory, string>> = {
   en: {
+    'Storyteller': 'Storyteller',
+    'Marketing Copywriter': 'Marketing Copywriter',
+    'Image Prompting': 'Image Prompting',
     'Sci-Fi & Cyberpunk': 'Sci-Fi & Cyberpunk',
     'Fantasy & Mythical': 'Fantasy & Mythical',
     'Cozy & Whimsical': 'Cozy & Whimsical',
@@ -32,6 +38,9 @@ export const CATEGORY_TRANSLATIONS: Record<Language, Record<PromptCategory, stri
     'Nature & Worldbuilding': 'Nature & Worldbuilding',
   },
   ms: {
+    'Storyteller': 'Pencerita & Naratif',
+    'Marketing Copywriter': 'Penulis Iklan Pemasaran',
+    'Image Prompting': 'Prompt Visual Imej',
     'Sci-Fi & Cyberpunk': 'Sains Fiksyen & Siberpunk',
     'Fantasy & Mythical': 'Fantasi & Mitos',
     'Cozy & Whimsical': 'Selesa & Menawan',
@@ -51,6 +60,147 @@ export const translateCategory = (cat: string, lang: Language): string => {
 };
 
 export const PROMPT_BANK: PromptTemplate[] = [
+
+  // --- Storyteller ---
+  {
+    id: 'storyteller-fantasy-chronicle',
+    label: 'Chronicles of the Broken Relic',
+    category: 'Storyteller',
+    prompt: 'In a shattered realm where magic is harvested like fossil fuel, a young runaway cartographer unearths an ancient living relic that communicates through visions of forgotten celestial empires.',
+    mode: 'story',
+    icon: '📖',
+    tags: ['Storytelling', 'Fantasy', 'Worldbuilding', 'Adventure']
+  },
+  {
+    id: 'storyteller-noir-detective',
+    label: 'The Neon Rain Murders',
+    category: 'Storyteller',
+    prompt: 'A weary cybernetic detective operating in the lower tiers of a dystopian mega-city accepts an anonymous case involving a synthetic memory that nobody claims to have experienced.',
+    mode: 'story',
+    icon: '🕵️',
+    tags: ['Storytelling', 'Noir', 'Mystery', 'Cyberpunk']
+  },
+  {
+    id: 'storyteller-interstellar-odyssey',
+    label: 'Signals from the Void Archive',
+    category: 'Storyteller',
+    prompt: 'The lone archivist aboard a deep-space interstellar listening beacon intercepts a harmonious acoustic broadcast coming from inside a supposedly dead star.',
+    mode: 'story',
+    icon: '🚀',
+    tags: ['Storytelling', 'Sci-Fi', 'Cosmic', 'Suspense']
+  },
+  {
+    id: 'storyteller-mythic-fable',
+    label: 'The Weaver of Autumn Winds',
+    category: 'Storyteller',
+    prompt: 'A gentle folkloric tale of an elder spirit who weaves the tapestry of seasonal changes, and a mortal child who accidentally unravels a golden thread of endless spring.',
+    mode: 'story',
+    icon: '🍂',
+    tags: ['Storytelling', 'Folklore', 'Cozy', 'Mythical']
+  },
+  {
+    id: 'storyteller-historical-intrigue',
+    label: 'The Secret Clockmaker of Prague',
+    category: 'Storyteller',
+    prompt: 'During the 18th century alchemy resurgence, an apprentice clockmaker discovers their master’s grand astronomical clock is secretly encoding predictions of political revolutions across Europe.',
+    mode: 'story',
+    icon: '⏳',
+    tags: ['Storytelling', 'Historical', 'Mystery', 'Drama']
+  },
+
+  // --- Marketing Copywriter ---
+  {
+    id: 'marketing-saas-launch',
+    label: 'High-Converting SaaS Product Pitch',
+    category: 'Marketing Copywriter',
+    prompt: 'Craft a punchy, high-converting product launch copy for an AI-powered creative collaboration platform. Include an attention-grabbing hook, 3 compelling core benefits with emotional payoff, social proof framing, and an irresistible call-to-action.',
+    mode: 'story',
+    icon: '💡',
+    tags: ['Marketing', 'Copywriting', 'SaaS', 'Launch']
+  },
+  {
+    id: 'marketing-viral-social-hook',
+    label: 'Viral Social Media Thought Leadership',
+    category: 'Marketing Copywriter',
+    prompt: 'Write an engaging, insightful LinkedIn/Twitter thread opener breaking down how modern creatives can 10x their workflow using proactive AI co-creation. Use bold contrarian insights, punchy line breaks, and relatable storytelling.',
+    mode: 'story',
+    icon: '📱',
+    tags: ['Marketing', 'Social Media', 'Growth', 'Hook']
+  },
+  {
+    id: 'marketing-brand-storytelling',
+    label: 'Authentic Brand Origin Story',
+    category: 'Marketing Copywriter',
+    prompt: 'Write an emotive, inspiring brand origin story for an artisanal sustainable lifestyle brand. Focus on the founder\'s moment of epiphany, dedication to natural craftsmanship, and a compelling mission that resonates with conscious consumers.',
+    mode: 'story',
+    icon: '🌱',
+    tags: ['Marketing', 'Brand Story', 'Narrative', 'Ecommerce']
+  },
+  {
+    id: 'marketing-email-newsletter',
+    label: 'High-Engagement Creator Newsletter',
+    category: 'Marketing Copywriter',
+    prompt: 'Compose an engaging weekly creator newsletter issue sharing actionable insights on overcoming creative blocks, featuring a conversational personal anecdote, 3 practical frameworks, and an inspiring quote.',
+    mode: 'story',
+    icon: '💌',
+    tags: ['Marketing', 'Email', 'Newsletter', 'Retention']
+  },
+  {
+    id: 'marketing-luxury-taglines',
+    label: 'Luxury Brand Positioning & Taglines',
+    category: 'Marketing Copywriter',
+    prompt: 'Develop 5 sophisticated brand positioning concepts and evocative taglines for an ultra-premium boutique fragrance house combining botanical heritage with futuristic synthetic biology.',
+    mode: 'story',
+    icon: '💎',
+    tags: ['Marketing', 'Branding', 'Luxury', 'Taglines']
+  },
+
+  // --- Image Prompting ---
+  {
+    id: 'image-prompting-cinematic-portrait',
+    label: 'Cinematic 35mm Character Portrait',
+    category: 'Image Prompting',
+    prompt: 'Masterpiece 35mm cinematic character portrait of an enigmatic visionary astronomer in a vintage brass observatory, soft volumetric golden hour sunbeams, subtle lens dust, Hasselblad aesthetic, ultra-sharp 8k',
+    mode: 'image',
+    icon: '📸',
+    tags: ['Image Prompting', 'Portrait', 'Cinematic', 'Photography']
+  },
+  {
+    id: 'image-prompting-studio-product',
+    label: 'Ultra-Minimalist Studio Product Shoot',
+    category: 'Image Prompting',
+    prompt: 'High-end commercial studio product photography of a sleek matte ceramic perfume bottle resting on raw travertine stone, delicate water ripple reflections, warm diffused studio strobe lighting, hyperrealistic, 8k',
+    mode: 'image',
+    icon: '🏺',
+    tags: ['Image Prompting', 'Product', 'Studio', 'Minimalist']
+  },
+  {
+    id: 'image-prompting-isometric-diorama',
+    label: '3D Isometric Floating World Diorama',
+    category: 'Image Prompting',
+    prompt: 'An intricate 3D isometric floating island diorama of a cozy mountainside ramen shop in autumn, miniature glowing paper lanterns, falling maple leaves, tiny claymation characters, Octane Render style, soft tilt-shift blur',
+    mode: 'image',
+    icon: '🏮',
+    tags: ['Image Prompting', '3D', 'Isometric', 'Diorama']
+  },
+  {
+    id: 'image-prompting-concept-landscape',
+    label: 'Epic Sci-Fi Concept Landscape',
+    category: 'Image Prompting',
+    prompt: 'Breathtaking concept art of a sprawling crystal metropolis nestled inside an extraterrestrial canyon under colossal planetary rings, dramatic scale, volumetric fog, matte painting, ArtStation trending',
+    mode: 'image',
+    icon: '🪐',
+    tags: ['Image Prompting', 'Sci-Fi', 'Concept Art', 'Landscape']
+  },
+  {
+    id: 'image-prompting-surreal-oil',
+    label: 'Surrealist Impressionist Masterpiece',
+    category: 'Image Prompting',
+    prompt: 'A dreamlike surrealist oil painting of a clockwork hummingbird sipping nectar from a glowing star-blossom in a midnight garden, textured impasto brushstrokes, vibrant ultraviolet and gold pigments',
+    mode: 'image',
+    icon: '🎨',
+    tags: ['Image Prompting', 'Artistic', 'Oil Painting', 'Surreal']
+  },
 
   // --- Sci-Fi & Cyberpunk ---
   {
@@ -547,6 +697,42 @@ export const PROMPT_BANK: PromptTemplate[] = [
 ];
 
 const MALAY_OVERRIDES: Record<string, { label?: string; prompt?: string }> = {
+  'storyteller-fantasy-chronicle': {
+    label: 'Kronikel Relik Terkubur',
+    prompt: 'Di alam di mana kuasa magis dituai seperti bahan api fosil, seorang pembuat peta muda menemui relik bernyawa purba yang berkomunikasi melalui visi empayar cakerawala yang telah lama dilupakan.'
+  },
+  'storyteller-noir-detective': {
+    label: 'Pembunuhan Hujan Neon',
+    prompt: 'Seorang detektif sibernetik di tingkat bawah metropolis distopia menerima kes tanpa nama berkenaan memori sintetik yang tiada siapa mengaku pernah mengalaminya.'
+  },
+  'storyteller-interstellar-odyssey': {
+    label: 'Isyarat Arkib Lompang',
+    prompt: 'Penjaga arkib tunggal di stesen pemancar jauh antara bintang memintas siaran akustik harmoni yang terpancar keluar dari dalam sebuah bintang yang disangka telah mati.'
+  },
+  'marketing-saas-launch': {
+    label: 'Pitch Pelancaran Produk SaaS Berimpak',
+    prompt: 'Hasilkan salinan iklan pelancaran produk yang memukau bagi platform kolaborasi kreatif AI. Sertakan tajuk utama yang menarik, 3 faedah utama beremosi, bukti sosial, dan seruan bertindak (CTA) yang berkesan.'
+  },
+  'marketing-viral-social-hook': {
+    label: 'Pembuka Hantaran Media Sosial Viral',
+    prompt: 'Tulis pembuka bebenang LinkedIn/Twitter yang padat dan menarik mengenai bagaimana pencipta moden boleh menggandakan produktiviti 10x menggunakan penciptaan bersama AI secara proaktif.'
+  },
+  'marketing-brand-storytelling': {
+    label: 'Kisah Asal Usul Jenama Berjiwa',
+    prompt: 'Tulis kisah asal usul jenama yang menyentuh hati dan memberi inspirasi untuk jenama gaya hidup lestari artisan, menekankan dedikasi kepada kraf semula jadi dan misi bermakna.'
+  },
+  'image-prompting-cinematic-portrait': {
+    label: 'Potret Sinematik 35mm Watak',
+    prompt: 'Potret watak sinematik 35mm ahli astronomi berwawasan di balai cerap tembaga antik, pancaran matahari petang lembut, habuk lensa halus, estetika kamera Hasselblad, 8k'
+  },
+  'image-prompting-studio-product': {
+    label: 'Fotografi Studio Produk Minimalis',
+    prompt: 'Fotografi studio komersial mewah bagi botol minyak wangi seramik matte di atas batu travertine, pantulan riak air halus, pencahayaan studio lembut, fotorealistik 8k'
+  },
+  'image-prompting-isometric-diorama': {
+    label: 'Diorama Isometrik 3D Pulau Terapung',
+    prompt: 'Diorama isometrik 3D pulau terapung dengan kedai ramen musim luruh di lereng gunung, tanglung kertas bercahaya, daun mapel berguguran, gaya Octane Render, kabur tilt-shift'
+  },
   'cyberpunk-teahouse': {
     label: 'Kedai Teh Siberpunk',
     prompt: 'Sebuah kedai teh siberpunk yang damai di lorong neo-Tokyo sewaktu hujan lebat, pantulan lampu neon pada lopak air, wap naik dari cawan seramik, tanglung holografik, fotografi sinematik 8k'
