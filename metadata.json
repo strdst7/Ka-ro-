@@ -1,0 +1,6 @@
+{
+  "name": "Ka!ro",
+  "description": "An intelligent agent that collaborates with users to refine prompts for content creation, featuring interactive clarifications, dynamic prompt co-creation, and session history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
